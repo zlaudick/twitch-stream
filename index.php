@@ -6,7 +6,11 @@
 	</head>
 	<body>
 		<h2>Persona</h2>
-			<p>Zac Laudick is a gamer and he enjoys watching other people stream gameplay.</p>
+			<p><strong>Name: </strong>Zac Laudick</p>
+			<p><strong>Age: </strong>25</p>
+			<p><strong>Profession: </strong>Web development student.</p>
+			<p><strong>Technology: </strong>MacBook Air</p>
+			<p><strong>Goal: </strong>Zac's goal is to find an entertaining streamer playing one of his favorite games.</p>
 		<h2>Use Case</h2>
 			<p>Zac is looking for a streamer playing one of his favorite games.</p>
 		<h2>Interaction Flow</h2>
