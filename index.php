@@ -22,5 +22,11 @@
 				<li>Click on one of the current streamers to watch</li>
 			</ol>
 		<h2>Conceptual Model</h2>
+			<ul>
+				<li>Each <strong>user</strong> can create a <strong>stream</strong>.</li>
+				<li>Many <strong>users</strong> can watch a <strong>stream</strong>.</li>
+				<li>A <strong>stream</strong> is limited to one <strong>game</strong>.</li>
+				<li>A <strong>game</strong> can be streamed by many <strong>users</strong>.</li>
+			</ul>
 	</body>
 </html>
