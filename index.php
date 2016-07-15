@@ -12,7 +12,8 @@
 			<p><strong>Technology: </strong>MacBook Air</p>
 			<p><strong>Goal: </strong>Zac's goal is to find an entertaining streamer playing one of his favorite games.</p>
 		<h2>Use Case</h2>
-			<p>Zac is looking for a streamer playing one of his favorite games.</p>
+			<p>Zac has just made it home after a long day of learning about web development. He would like to relax and
+			watch an entertaining stream while he enjoys his dinner.</p>
 		<h2>Interaction Flow</h2>
 			<ol>
 				<li>Go to twitch.tv homepage</li>
