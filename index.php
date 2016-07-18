@@ -33,32 +33,34 @@
 			<ol>
 				<li>User</li>
 					<ul>
-						<li>UserId</li>
-						<li>UserName</li>
-						<li>UserEmail</li>
+						<li>userId</li>
+						<li>userName</li>
+						<li>userEmail</li>
+						<li>userPasswordHash</li>
+						<li>userPasswordSalt</li>
 					</ul>
 				<li>Game</li>
 					<ul>
-						<li>GameId</li>
-						<li>GameName</li>
+						<li>gameId</li>
+						<li>gameName</li>
 					</ul>
 				<li>Stream</li>
 					<ul>
-						<li>StreamId</li>
-						<li>UserName</li>
-						<li>GameName</li>
+						<li>streamId</li>
+						<li>userName</li>
+						<li>gameName</li>
 					</ul>
 				<li>Follow</li>
 					<ul>
-						<li>FollowId</li>
-						<li>User1</li>
-						<li>User2</li>
+						<li>followId</li>
+						<li>user1</li>
+						<li>user2</li>
 					</ul>
 				<li>Subscribe</li>
 					<ul>
-						<li>SubscribeId</li>
-						<li>User1</li>
-						<li>User2</li>
+						<li>subscribeId</li>
+						<li>user1</li>
+						<li>user2</li>
 					</ul>
 			</ol>
 	</body>
