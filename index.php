@@ -23,10 +23,11 @@
 			</ol>
 		<h2>Conceptual Model</h2>
 			<ul>
-				<li>Each <strong>user</strong> can create a <strong>stream</strong>.</li>
-				<li>Many <strong>users</strong> can watch a <strong>stream</strong>.</li>
-				<li>A <strong>stream</strong> is limited to one <strong>game</strong>.</li>
-				<li>A <strong>game</strong> can be streamed by many <strong>users</strong>.</li>
+				<li>Each <strong>user</strong> can create many <strong>streams</strong>.</li>
+				<li>Many <strong>users</strong> can watch many <strong>streams</strong>.</li>
+				<li>Many <strong>users</strong> can follow many <strong>users</strong>.</li>
+				<li>Many <strong>users</strong> can subscribe to many <strong>users</strong>.</li>
+				<li>Many <strong>users</strong> can <strong>stream</strong> many <strong>games</strong>.</li>
 			</ul>
 	</body>
 </html>
