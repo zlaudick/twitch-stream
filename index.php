@@ -29,5 +29,37 @@
 				<li>Each <strong>game</strong> can have many <strong>streams</strong>.</li>
 				<li>Each <strong>stream</strong> can have only one <strong>game</strong>.</li>
 			</ul>
+		<h4>Entities and Attributes</h4>
+			<ol>
+				<li>User</li>
+					<ul>
+						<li>UserId</li>
+						<li>UserName</li>
+						<li>UserEmail</li>
+					</ul>
+				<li>Game</li>
+					<ul>
+						<li>GameId</li>
+						<li>GameName</li>
+					</ul>
+				<li>Stream</li>
+					<ul>
+						<li>StreamId</li>
+						<li>UserName</li>
+						<li>GameName</li>
+					</ul>
+				<li>Follow</li>
+					<ul>
+						<li>FollowId</li>
+						<li>User1</li>
+						<li>User2</li>
+					</ul>
+				<li>Subscribe</li>
+					<ul>
+						<li>SubscribeId</li>
+						<li>User1</li>
+						<li>User2</li>
+					</ul>
+			</ol>
 	</body>
 </html>
