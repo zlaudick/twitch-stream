@@ -8,12 +8,10 @@
 		<h2>Persona</h2>
 			<p><strong>Name: </strong>Zac Laudick</p>
 			<p><strong>Age: </strong>25</p>
-			<p><strong>Profession: </strong>Web development student.</p>
-			<p><strong>Technology: </strong>MacBook Air</p>
-			<p><strong>Goal: </strong>Zac's goal is to find an entertaining streamer playing one of his favorite games.</p>
+			<p><strong>Description:</strong> Zac is a gaming enthusiast and web development student. He spends most of his day in class, learning about making great websites. After long days in class he likes to take some time to relax and eat dinner before playing video games with his friends. During this time he enjoys watching other gamers stream his favorite games. To watch these streams he uses either his Macbook Air or iPhone 5 to search twitch.tv and connect to a stream.</p>
+			<p><strong>Goal: </strong>Zac's goal is to find a stream to watch with minimal effort.</p>
 		<h2>Use Case</h2>
-			<p>Zac has just made it home after a long day of learning about web development. He would like to relax and
-			watch an entertaining stream while he enjoys his dinner.</p>
+			<p>It's 6 pm and Zac is home from his long day of learning web development. He's tired and wants to easily find an entertaining stream to watch while he enjoys his dinner. He is in his living room using his Macbook Air to search twitch.tv for someone playing Overwatch. When he finds a stream he will connect it to his big screen tv through his chromecast.</p>
 		<h2>Interaction Flow</h2>
 			<ol>
 				<li>Go to twitch.tv homepage</li>
@@ -35,6 +33,7 @@
 					<ul>
 						<li>userId</li>
 						<li>userName</li>
+						<li>userImage</li>
 						<li>userEmail</li>
 						<li>userPasswordHash</li>
 						<li>userPasswordSalt</li>
