@@ -1,2 +1,22 @@
 -- create the user entity
-CREATE TABLE user ()
+CREATE TABLE user (
+	userId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+	userName VARCHAR(32) NOT NULL,
+	userEmail VARCHAR(128) NOT NULL,
+
+	UNIQUE(userName),
+	UNIQUE(userEmail),
+	PRIMARY KEY (userId)
+);
+
+CREATE TABLE game (
+	gameId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+	gameName VARCHAR(32) NOT NULL,
+	UNIQUE(gameId),
+	UNIQUE (gameName)
+);
+
+CREATE TABLE stream (
+	streamId INT UNSIGNED AUTO_INCREMENT NOT NULL
+
+)
