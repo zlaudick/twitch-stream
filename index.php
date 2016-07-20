@@ -52,13 +52,13 @@
 					</ul>
 				<li>Follow</li>
 					<ul>
-						<li>follower</li>
-						<li>streamer</li>
+						<li>followerUserId</li>
+						<li>streamerUserId</li>
 					</ul>
 				<li>Subscribe</li>
 					<ul>
-						<li>subscriber</li>
-						<li>streamer</li>
+						<li>subscriberUserId</li>
+						<li>streamerUserId</li>
 					</ul>
 			</ol>
 		<h2>ERD</h2>
