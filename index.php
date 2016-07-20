@@ -46,8 +46,8 @@
 				<li>Stream</li>
 					<ul>
 						<li>streamId</li>
-						<li>userName</li>
-						<li>gameName</li>
+						<li>streamUserName</li>
+						<li>streamGameName</li>
 						<li>streamTitle</li>
 					</ul>
 				<li>Follow</li>
