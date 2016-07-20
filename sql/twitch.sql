@@ -1,11 +1,16 @@
+DROP TABLE IF EXISTS `subscribe`;
+DROP TABLE IF EXISTS `follow`;
+DROP TABLE IF EXISTS stream;
+DROP TABLE IF EXISTS game;
+DROP TABLE IF EXISTS user;
 -- create the user entity
 CREATE TABLE user (
 	userId INT UNSIGNED AUTO_INCREMENT NOT NULL,
-	userName VARCHAR(32) NOT NULL,
 	userEmail VARCHAR(128) NOT NULL,
 	userImage VARCHAR(128) NOT NULL,
-	UNIQUE(userName),
+	userName VARCHAR(32) NOT NULL,
 	UNIQUE(userEmail),
+	UNIQUE(userName),
 	PRIMARY KEY (userId)
 );
 
@@ -19,17 +24,17 @@ CREATE TABLE game (
 
 CREATE TABLE stream (
 	streamId INT UNSIGNED AUTO_INCREMENT NOT NULL,
-	streamUserName VARCHAR(32) NOT NULL,
 	streamGameName VARCHAR(32) NOT NULL,
 	streamTitle VARCHAR(140) NOT NULL,
-	INDEX (streamUserName),
+	streamUserId INT UNSIGNED NOT NULL,
 	INDEX (streamGameName),
-	FOREIGN KEY (streamUserName) REFERENCES user(userName),
+	INDEX (streamUserId),
 	FOREIGN KEY (streamGameName) REFERENCES game(gameName),
+	FOREIGN KEY (streamUserId) REFERENCES user(userId),
 	PRIMARY KEY (streamId)
 );
 
-CREATE TABLE follow (
+CREATE TABLE `follow` (
 	followerUserId INT UNSIGNED NOT NULL,
 	streamerUserId INT UNSIGNED NOT NULL,
 	INDEX (followerUserId),
@@ -39,7 +44,7 @@ CREATE TABLE follow (
 	PRIMARY KEY (followerUserId, streamerUserId)
 );
 
-CREATE TABLE subscribe (
+CREATE TABLE `subscribe` (
 	subscriberUserId INT UNSIGNED NOT NULL,
 	streamerUserId INT UNSIGNED NOT NULL,
 	INDEX (subscriberUserId),

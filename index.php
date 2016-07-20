@@ -46,7 +46,7 @@
 				<li>Stream</li>
 					<ul>
 						<li>streamId</li>
-						<li>streamUserName</li>
+						<li>streamUserId</li>
 						<li>streamGameName</li>
 						<li>streamTitle</li>
 					</ul>
