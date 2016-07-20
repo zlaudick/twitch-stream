@@ -21,11 +21,11 @@
 			</ol>
 		<h2>Conceptual Model</h2>
 			<ul>
-				<li>Each <strong>user</strong> can create many <strong>streams</strong>.</li>
-				<li>Many <strong>users</strong> can follow many <strong>users</strong>.</li>
-				<li>Many <strong>users</strong> can subscribe to many <strong>users</strong>.</li>
-				<li>Each <strong>game</strong> can have many <strong>streams</strong>.</li>
-				<li>Each <strong>stream</strong> can have only one <strong>game</strong>.</li>
+				<li>Each <strong>user</strong> can create many <strong>streams</strong>. (1-to-n)</li>
+				<li>Many <strong>users</strong> can follow many <strong>users</strong>. (m-to-n)</li>
+				<li>Many <strong>users</strong> can subscribe to many <strong>users</strong>. (m-to-n)</li>
+				<li>Each <strong>game</strong> can have many <strong>streams</strong>. (1-to-n)</li>
+				<li>Each <strong>stream</strong> can have only one <strong>game</strong>. (1-to-1)</li>
 			</ul>
 		<h4>Entities and Attributes</h4>
 			<ol>
