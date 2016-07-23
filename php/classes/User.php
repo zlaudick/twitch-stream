@@ -52,9 +52,6 @@ class User {
 	 *
 	 * @return string value of user name
 	 */
-	/**
-	 * @return mixed
-	 */
 	public function getUserName() {
 		return $this->userName;
 	}
@@ -65,9 +62,6 @@ class User {
 	 * @param string $newUserName new value of user name
 	 * @throws UnexpectedValueException if $newUserName is not valid
 	 */
-	/**
-	 * @param mixed $userName
-	 */
 	public function setUserName($newUserName) {
 		// verify the user name is valid
 		$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING);
@@ -76,5 +70,48 @@ class User {
 		}
 		// store the user name
 		$this->userName = $newUserName;
+	}
+
+	/**
+	 * accessor method for user email
+	 *
+	 * @return string value of email
+	 */
+
+	public function getUserEmail() {
+		return $this->userEmail;
+	}
+	/**
+	 * mutator method for user email
+	 */
+	public function setUserEmail($newUserEmail) {
+		// verify the user email is valid
+		$newUserEmail = filter_var($newUserEmail, FILTER_VALIDATE_EMAIL);
+		if($newUserEmail === false) {
+			throw(new UnexpectedValueException("email is not a valid email address"));
+		}
+		// store the user email
+		$this->userEmail = $newUserEmail;
+	}
+
+	/**
+	 * accessor method for user image
+	 *
+	 * @return string value of user image
+	 */
+	public function getUserImage() {
+		return($this->userImage);
+	}
+
+	/**
+	 * mutator method for user image
+	 */
+	public function setUserImage($newUserImage) {
+		$newUserImage = filter_var($newUserImage, FILTER_SANITIZE_STRING);
+		if($newUserImage === false) {
+			throw(new UnexpectedValueException("image is not valid"));
+		}
+		// store the user image
+		$this->userImage = $newUserImage;
 	}
 }
