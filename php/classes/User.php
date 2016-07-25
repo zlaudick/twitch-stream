@@ -83,10 +83,13 @@ class User {
 	}
 	/**
 	 * mutator method for user email
+	 *
+	 * @param string $newUserEmail new value of user email
+	 * @throws UnexpectedValueException if $newUserEmail is not valid
 	 */
 	public function setUserEmail($newUserEmail) {
 		// verify the user email is valid
-		$newUserEmail = filter_var($newUserEmail, FILTER_VALIDATE_EMAIL);
+		$newUserEmail = filter_var($newUserEmail, FILTER_SANITIZE_EMAIL);
 		if($newUserEmail === false) {
 			throw(new UnexpectedValueException("email is not a valid email address"));
 		}
@@ -105,6 +108,9 @@ class User {
 
 	/**
 	 * mutator method for user image
+	 *
+	 * @param string $newUserImage new value of user image
+	 * @throws UnexpectedValueException if $newUserImage is not valid
 	 */
 	public function setUserImage($newUserImage) {
 		$newUserImage = filter_var($newUserImage, FILTER_SANITIZE_STRING);
