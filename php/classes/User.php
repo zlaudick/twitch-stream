@@ -2,6 +2,8 @@
 /**
  * User for twitch.tv
  *
+ * This User class is an example of data collected and stored about a typical user for twitch.tv
+ *
  * @author Zac Laudick <zlaudick@cnm.edu>
  */
 class User {
@@ -68,13 +70,13 @@ class User {
 	 * mutator method for user id
 	 *
 	 * @param int $newUserId new value of user id
-	 * @throws UnexpectedValueException if $newUserId is not an integer
+	 * @throws \RangeException if $newUserId is not positive
+	 * @throws \TypeError if $newUserId is not an integer
 	 */
-	public function setUserId($newUserId) {
-		// verify the user id is valid
-		$newUserId = filter_var($newUserId, FILTER_VALIDATE_INT);
-		if($newUserId === false) {
-			throw(new UnexpectedValueException("user id is not a valid integer"));
+	public function setUserId(int $newUserId) {
+		// verify the user id is positive
+		if($newUserId <= 0) {
+			throw(new \RangeException("user id is not positive"));
 		}
 		// convert and store the user id
 		$this->userId = intval($newUserId);
@@ -93,14 +95,21 @@ class User {
 	 * mutator method for user name
 	 *
 	 * @param string $newUserName new value of user name
-	 * @throws UnexpectedValueException if $newUserName is not valid
+	 * @throws \InvalidArgumentException if $newUserName is not a string or insecure
+	 * @throws \TypeError if $newUserId is not a string
 	 */
-	public function setUserName($newUserName) {
-		// verify the user name is valid
+	public function setUserName(string $newUserName) {
+		// verify the user name is secure
+		$newUserName = trim($newUserName);
 		$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING);
-		if($newUserName === false) {
-			throw(new UnexpectedValueException("user name is not a valid string"));
+		if(empty($newUserName) === true) {
+			throw(new \InvalidArgumentException("user name is empty or insecure"));
 		}
+		//verify the user name content will fit in the database
+		if(strlen($newUserName) > 32) {
+			throw(new \RangeException("user name content is too large"));
+		}
+
 		// store the user name
 		$this->userName = $newUserName;
 	}
@@ -118,13 +127,20 @@ class User {
 	 * mutator method for user email
 	 *
 	 * @param string $newUserEmail new value of user email
-	 * @throws UnexpectedValueException if $newUserEmail is not valid
+	 * @throws \InvalidArgumentException if $newUserEmail is not a string or insecure
+	 * @throws \RangeException if $newUserEmail is > 128 characters
+	 * @throws \TypeError if $newUserEmail is not a string
 	 */
-	public function setUserEmail($newUserEmail) {
-		// verify the user email is valid
+	public function setUserEmail(string $newUserEmail) {
+		// verify the user email is secure
+		$newUserEmail = trim($newUserEmail);
 		$newUserEmail = filter_var($newUserEmail, FILTER_SANITIZE_EMAIL);
-		if($newUserEmail === false) {
-			throw(new UnexpectedValueException("email is not a valid email address"));
+		if(empty($newUserEmail) === true) {
+			throw(new \InvalidArgumentException("email is empty or insecure"));
+		}
+		// verify the user email will fit in the database
+		if(strlen($newUserEmail) > 128) {
+			throw(new \RangeException("email content is too large"));
 		}
 		// store the user email
 		$this->userEmail = $newUserEmail;
@@ -143,12 +159,20 @@ class User {
 	 * mutator method for user image
 	 *
 	 * @param string $newUserImage new value of user image
-	 * @throws UnexpectedValueException if $newUserImage is not valid
+	 * @throws \InvalidArgumentException if $newUserImage is not a string or insecure
+	 * @throws \RangeException if $newUserImage is > 128 characters
+	 * @throws \TypeError if $newUserImage is not a string
 	 */
 	public function setUserImage($newUserImage) {
+		// verify the image is secure
+		$newUserImage = trim($newUserImage);
 		$newUserImage = filter_var($newUserImage, FILTER_SANITIZE_STRING);
-		if($newUserImage === false) {
-			throw(new UnexpectedValueException("image is not valid"));
+		if(empty($newUserImage) === true) {
+			throw(new \InvalidArgumentException("image is empty or insecure"));
+		}
+		// verify the image will fit in the database
+		if(strlen($newUserImage) > 128) {
+			throw(new \RangeException("image content is too large"));
 		}
 		// store the user image
 		$this->userImage = $newUserImage;
