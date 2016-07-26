@@ -1,4 +1,5 @@
 <?php
+namespace Edu\Cnm\Zlaudick\TwitchStream;
 /**
  * User for twitch.tv
  *
