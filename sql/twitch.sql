@@ -9,8 +9,8 @@ CREATE TABLE user (
 	userEmail VARCHAR(128) NOT NULL,
 	userImage VARCHAR(128) NOT NULL,
 	userName VARCHAR(32) NOT NULL,
-	userPasswordHash NVARCHAR(128) NOT NULL,
-	userPasswordSalt NVARCHAR(128) NOT NULL,
+	userPasswordHash CHAR(128) NOT NULL,
+	userPasswordSalt CHAR(64) NOT NULL,
 	UNIQUE(userEmail),
 	UNIQUE(userName),
 	PRIMARY KEY (userId)
