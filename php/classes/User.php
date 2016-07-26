@@ -1,7 +1,7 @@
 <?php
 namespace Edu\Cnm\Zlaudick\TwitchStream;
 
-require_once(autoload.php);
+require_once("autoload.php");
 
 /**
  * User for twitch.tv
