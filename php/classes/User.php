@@ -1,5 +1,8 @@
 <?php
 namespace Edu\Cnm\Zlaudick\TwitchStream;
+
+require_once(autoload.php);
+
 /**
  * User for twitch.tv
  *
@@ -209,16 +212,16 @@ class User {
 	 * mutator method for user password hash
 	 *
 	 * @param string $newUserPasswordHash with ctype xdigit with a string of 128
-	 * @throws InvalidArgumentException if the hash is empty or insecure
-	 * @throws RangeException if $newUserPasswordHash is not 128 characters
+	 * @throws \InvalidArgumentException if the hash is empty or insecure
+	 * @throws \RangeException if $newUserPasswordHash is not 128 characters
 	 **/
 	public function setUserPasswordHash($newUserPasswordHash) {
 		// verify the hash is exactly a string of 128 characters
 		if((ctype_xdigit($newUserPasswordHash)) === false) {
-			throw(new InvalidArgumentException("hash is emtpy or insecure"));
+			throw(new \InvalidArgumentException("hash is emtpy or insecure"));
 		}
 		if(strlen($newUserPasswordHash) !== 128) {
-			throw(new RangeException("hash is not a valid length"));
+			throw(new \RangeException("hash is not a valid length"));
 		}
 		// store user hash
 		$this->userPasswordHash = $newUserPasswordHash;
@@ -236,17 +239,17 @@ class User {
 	 * mutator method for user password salt
 	 *
 	 * @param string $newUserPasswordSalt with ctype xdigit with a string of 64
-	 * @throws InvalidArgumentException if salt is empty or insecure
-	 * @throws RangeException if salt is not exactly 64 characters
+	 * @throws \InvalidArgumentException if salt is empty or insecure
+	 * @throws \RangeException if salt is not exactly 64 characters
 	 **/
 	public function setUserPasswordSalt($newUserPasswordSalt) {
 		// verify the salt is a string of exactly 64 characters
 		if((ctype_xdigit($newUserPasswordSalt)) === false) {
-			throw(new InvalidArgumentException("salt is empty or insecure"));
+			throw(new \InvalidArgumentException("salt is empty or insecure"));
 		}
 		// verify the salt is exactly 64 characters
 		if(strlen($newUserPasswordSalt) !== 64) {
-			throw(new RangeException("salt is not 64 characters"));
+			throw(new \RangeException("salt is not 64 characters"));
 		}
 		// store user salt
 		$this->userPasswordSalt = $newUserPasswordSalt;
