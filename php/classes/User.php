@@ -95,7 +95,12 @@ class User {
 	 * @throws \RangeException if $newUserId is not positive
 	 * @throws \TypeError if $newUserId is not an integer
 	 **/
-	public function setUserId(int $newUserId) {
+	public function setUserId(int $newUserId = null) {
+		// if the user id is null, this is a new id without a mySQL assigned id
+		if($newUserId === null) {
+			$this->userId = null;
+			return;
+		}
 		// verify the user id is positive
 		if($newUserId <= 0) {
 			throw(new \RangeException("user id is not positive"));
