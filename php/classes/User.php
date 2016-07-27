@@ -306,4 +306,28 @@ class User {
 		$parameters = ["userId" => $this->userId];
 		$statement->execute($parameters);
 	}
+
+	/**
+	 * updates this User in mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL related errors occur
+	 * @throws \TypeError if $pdo is not a PDO connection object
+	 **/
+	public function update(\PDO $pdo) {
+		// enforce the user id is not null
+		if($this->userId === null) {
+			throw(new \PDOException("unable to update a user that doesn't exist"));
+		}
+
+		// create query template
+		$query = "UPDATE user SET userName = :userName, userEmail = :userEmail, userImage = :userImage, userPasswordHash = :userPasswordHash, userPasswordSalt = :userPasswordSalt WHERE userId = :userId";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holder in the template
+		$parameters = ["userName" => $this->userName, "userEmail" => $this->userEmail, "userImage" => $this->userImage, "userPasswordHash" => $this->userPasswordHash, "userPasswordSalt" => $this->userPasswordSalt, "userId" => $this->userId];
+		$statement->execute($parameters);
+	}
+
+	//
 }
