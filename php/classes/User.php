@@ -259,4 +259,51 @@ class User {
 		// store user salt
 		$this->userPasswordSalt = $newUserPasswordSalt;
 	}
+
+	/**
+	 * inserts this User into mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL related errors occur
+	 * @throws \TypeError if $pdo is not a PDO connection object
+	 **/
+	public function insert(\PDO $pdo) {
+		// enforce the user id is null
+		if($this->userId !== null) {
+			throw(new \PDOException("not a new id"));
+		}
+
+		//create query template
+		$query = "INSERT INTO `user`(userName, userEmail, userImage, userPasswordHash, userPasswordSalt) VALUES(:userName, :userEmail, :userImage, :userPasswordHash, :userPasswordSalt)";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holders in the template
+		$parameters = ["userName" => $this->userName, "userEmail" => $this->userEmail, "userImage" => $this->userImage, "userPasswordHash" => $this->userPasswordHash, "userPasswordSalt" => $this->userPasswordSalt];
+		$statement->execute($parameters);
+
+		// update the null userId with what mySQL just gave us
+		$this->userId = intval($pdo->lastInsertId());
+	}
+
+	/**
+	 * deletes this User from mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL related errors occur
+	 * @throws \TypeError if $pdo is not a PDO connection object
+	 **/
+	public function delete(\PDO $pdo) {
+		// enforce the user id is not null
+		if($this->userId === null) {
+			throw(new \PDOException("unable to delete a user that doen't exist"));
+		}
+
+		// create query template
+		$query = "DELETE FROM user WHERE userId = :userId";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holder in the template
+		$parameters = ["userId" => $this->userId];
+		$statement->execute($parameters);
+	}
 }
